@@ -1,8 +1,9 @@
-module.exports = function($scope, favoriteService) {
+module.exports = function($scope, favoriteService, $rootScope) {
   'ngInject';
   
   const vm = this;
   const id = $scope.id;
+  const data = $scope.data;
   vm.isMarked = favoriteService.isMarked(id);
 
   vm.favorite = ($event) => {
@@ -10,7 +11,8 @@ module.exports = function($scope, favoriteService) {
       favoriteService.unMark(id);
       vm.isMarked = false;
     } else {
-      favoriteService.mark(id);
+      data.dataType = $rootScope.selectedType;
+      favoriteService.mark(id, data);
       vm.isMarked = true;
     }
     $event.stopPropagation();

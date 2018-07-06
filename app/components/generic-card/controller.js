@@ -7,6 +7,7 @@ module.exports = function($scope) {
   vm.url = $scope.url;
   vm.id = $scope.id;
   vm.title = $scope.title;
+  vm.data = $scope.data;
 
   vm.showDetails = () =>  {
     $scope.$emit('show.details');

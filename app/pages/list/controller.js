@@ -1,10 +1,11 @@
-module.exports = function($scope, spotify, $stateParams, authService) {
+module.exports = function($scope, spotify, $stateParams, authService, $rootScope) {
   'ngInject';
   const vm = this;
   saveSpotifyToken();
   vm.currentQuery = '';
   vm.options = ['artist', 'track', 'album'];
   vm.currentType = vm.options[0];
+  $rootScope.selectedType = vm.currentType;
   vm.artists = [];
 
   $scope.$on('search', (scope, query) => {
@@ -14,6 +15,7 @@ module.exports = function($scope, spotify, $stateParams, authService) {
 
   $scope.$on('selectedType', (scope, type) => {
     vm.currentType = type;
+    $rootScope.selectedType = type;
     search(vm.currentQuery, type);
   });
 

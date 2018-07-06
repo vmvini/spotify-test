@@ -11,7 +11,8 @@ module.exports = function() {
     scope: {
       url: '@',
       id: '@',
-      title: '@'
+      title: '@', 
+      data: '<'
     }, 
     controller: controller,
     controllerAs: 'vm', 

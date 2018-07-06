@@ -9,7 +9,8 @@ module.exports = function() {
     templateUrl: template,
     link: link,
     scope: {
-      id: '<'
+      id: '<', 
+      data: '<'
     }, 
     controller: controller,
     controllerAs: 'vm'

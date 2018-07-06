@@ -4,7 +4,8 @@ module.exports = function($scope) {
   'ngInject';
   
   const vm = this;
-
+  
+  vm.rawArtist = $scope.artist;
   vm.artist = processArtistData($scope.artist);
 
   $scope.$on('show.details', () => {
