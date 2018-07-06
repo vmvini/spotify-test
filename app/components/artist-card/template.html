@@ -1,0 +1,40 @@
+<generic-card 
+    url="{{vm.artist.image}}" 
+    id="{{vm.artist.id}} "
+    title="{{vm.artist.name}}">
+
+    <p>
+        Popularity: {{vm.artist.popularity}}
+    </p>
+    <p>
+        Genres: {{vm.artist.genres}}
+    </p>
+
+</generic-card>
+
+
+<!--<div class="card-wrapper" layout="column" ng-click="vm.showDetails()">
+    <md-card>
+        <img src="{{vm.artist.image}}" class="md-card-image">
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{vm.artist.name}}</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <p>
+                Popularity: {{vm.artist.popularity}}
+            </p>
+            <p>
+                Genres: {{vm.artist.genres}}
+            </p>
+        </md-card-content>
+
+        <heart-favorite id="vm.artist.id">
+
+        </heart-favorite>
+    </md-card>
+
+</div>-->

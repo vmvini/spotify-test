@@ -1,0 +1,15 @@
+.center {
+    display: table;
+    margin: 0 auto;
+
+    .item {
+      display: inline;
+      cursor: pointer;
+    }
+
+    .list {
+      min-width: 696px;
+	  list-style: none;
+	  padding-top: 20px;
+    }
+}

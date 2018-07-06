@@ -1,0 +1,12 @@
+<md-select 
+    ng-model="vm.selectedType" 
+    placeholder="Search By"
+    ng-change="vm.updateSelected()" 
+    class="md-no-underline">
+
+    <div ng-repeat="option in vm.options">
+        <md-option value="{{option}}">{{option}}</md-option>
+    </div>
+    
+
+</md-select>

@@ -1,0 +1,16 @@
+<search-bar-directive>
+</search-bar-directive>
+
+<select-options options="vm.options">
+</select-options>
+<br>
+
+<div class="center">
+    <div class="list" ng-if="vm.currentType === 'artist'"> 
+    <div class="item" ng-repeat="artist in vm.artists">
+        <artist-card artist="artist">
+        </artist-card>
+    </div>
+    </div>
+</div>
+

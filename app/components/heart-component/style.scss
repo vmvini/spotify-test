@@ -1,0 +1,17 @@
+.favorite-button-container {
+    
+    i {
+        float: right;
+        padding: 30px;
+    }
+
+    .marked {
+        color: #D44950;
+        transition: color 1s ease;
+    }
+
+    .not_marked {
+        color: #BAB3C4;
+        transition: color 1s ease;
+    }
+}

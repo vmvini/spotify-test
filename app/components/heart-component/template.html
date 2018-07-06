@@ -1,0 +1,8 @@
+<div class="favorite-button-container" layout-align="end center">
+    <i 
+        ng-class="{'marked': vm.isMarked, 'not_marked': !vm.isMarked }"
+        ng-click="vm.favorite($event)" 
+        class="fa fa-2x fa-heart" 
+        aria-hidden="true">
+    </i>
+</div>

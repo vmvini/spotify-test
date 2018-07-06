@@ -1,0 +1,30 @@
+<div class="seach-bar-directive">
+    <md-toolbar>
+        <div id="search-bar" ng-show="vm.showPreSearchBar()" class="md-toolbar-tools">
+
+            <h2>Search Spotify Songs</h2>
+            <span flex></span>
+
+            <md-button ng-click="vm.initiateSearch()">
+                <span>Search</span>
+            </md-button>
+
+        </div>
+
+        <div ng-show="vm.showSearchBar()" class="md-toolbar-tools search-bar">
+
+            <md-button  ng-click="vm.submit()">
+                Search
+            </md-button>
+
+            <md-input-container flex>
+                <input id="search-input" type="text" ng-model="vm.search" />
+            </md-input-container>
+
+            <md-button ng-click="vm.endSearch()">
+                close
+            </md-button>
+        </div>
+
+    </md-toolbar>
+</div>

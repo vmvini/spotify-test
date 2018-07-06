@@ -1,0 +1,22 @@
+<div class="card-wrapper" layout="column" ng-click="vm.showDetails()">
+    <md-card>
+        <img src="{{vm.url}}" class="md-card-image">
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{vm.title}}</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <ng-transclude>
+
+          </ng-transclude>
+        </md-card-content>
+
+        <heart-favorite id="vm.id">
+        </heart-favorite>
+
+    </md-card>
+    
+</div>
