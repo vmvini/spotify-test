@@ -27,4 +27,5 @@ app.use((req, res, next) => {
   res.sendFile(__dirname + "/dist/index.html");
 });
 
+console.log('server is on, go to http://localhost:3000 to signin on spotify');
 module.exports = app;

@@ -1,3 +1,11 @@
+1-Install node js 
+
+2- inside this project directory , execute the following commands:
+
 npm install 
-npm run build 
-npm run serve
+
+npm start
+
+3- When the build finishes, Go to http://localhost:3000
+
+Sign in on spotify and then youll see the list page. 
