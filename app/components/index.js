@@ -3,6 +3,7 @@ require('./select-options');
 require('./artist-card');
 require('./heart-component');
 require('./generic-card');
+require('./album-card');
 
 angular
 .module('components', [
@@ -10,5 +11,6 @@ angular
   'select-options', 
   'artist-card',
   'heart-favorite', 
-  'generic-card'
+  'generic-card',
+  'album-card'
 ]);

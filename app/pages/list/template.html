@@ -12,5 +12,12 @@
         </artist-card>
     </div>
     </div>
+
+    <div class="list" ng-if="vm.currentType === 'album'"> 
+    <div class="item" ng-repeat="album in vm.albums">
+        <album-card album="album">
+        </album-card>
+    </div>
+    </div>
 </div>
 
