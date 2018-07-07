@@ -4,7 +4,9 @@ module.exports = ($http, $q) => {
   'ngInject';
   
   return {
-    search: search
+    search: search,
+    artistAlbums: artistAlbums,
+    getAllTracks: getAllTracks
   };
 
   function search(query, type) {
@@ -14,6 +16,25 @@ module.exports = ($http, $q) => {
       params: {
         q: query, 
         type: type
+      }
+    });
+  }
+
+  function artistAlbums(artistId) {
+    return $http({
+      url: `https://api.spotify.com/v1/artists/${artistId}/albums`,
+      method: 'GET', 
+      params: {
+        limit: 5
+      }
+    });
+  }
+
+  function getAllTracks(albumId) {
+    return $http({
+      url: `https://api.spotify.com/v1/albums/${albumId}/tracks`,
+      method: 'GET', 
+      params: {
       }
     });
   }

@@ -10,13 +10,27 @@ module.exports = function($scope) {
  
   function processTrackData(track) {
     return {
-      image: track.album.images.length > 0 ? track.album.images[0].url : NO_IMG_URL, 
+      image: getImage(track), 
       name: track.name, 
       artist: track.artists.map( a => a.name ).join(', '), 
-      albumName: track.album.name, 
+      albumName: getAlbumName(track), 
       duration: toMinutes(track.duration_ms), 
       id: track.id
     }
+  }
+
+  function getAlbumName(track) {
+    if ( track.album ) {
+      return track.album.name;
+    }
+    return $scope.parentName ? $scope.parentName : 'not found';
+  }
+
+  function getImage(track) {
+    if ( track.album ) {
+      return track.album.images.length > 0 ? track.album.images[0].url : NO_IMG_URL;
+    } 
+    return $scope.parentImage ? $scope.parentImage : NO_IMG_URL;
   }
 
   function toMinutes(millis) {

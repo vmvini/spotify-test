@@ -9,7 +9,9 @@ module.exports = function() {
     templateUrl: template,
     link: link,
     scope: {
-      track: '<'
+      track: '<',
+      parentImage: '@', 
+      parentName: '@'
     }, 
     controller: controller,
     controllerAs: 'vm'

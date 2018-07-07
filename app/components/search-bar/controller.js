@@ -1,12 +1,12 @@
-module.exports = function($scope) {
+module.exports = function($scope, $rootScope) {
   'ngInject';
   const vm = this;
-  vm.search = '';
+  $rootScope.search = '';
   vm.options = $scope.options;
   vm.showFavorites = false;
 
   vm.submit = function() {
-    const search = vm.search;
+    const search = $rootScope.search;
     $scope.$emit('search', search);
   };
   
