@@ -4,6 +4,7 @@ require('./artist-card');
 require('./heart-component');
 require('./generic-card');
 require('./album-card');
+require('./track-card');
 
 angular
 .module('components', [
@@ -12,5 +13,6 @@ angular
   'artist-card',
   'heart-favorite', 
   'generic-card',
-  'album-card'
+  'album-card', 
+  'track-card'
 ]);

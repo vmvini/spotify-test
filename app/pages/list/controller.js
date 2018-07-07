@@ -8,6 +8,7 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
   $rootScope.selectedType = vm.currentType;
   vm.artists = [];
   vm.albums = [];
+  vm.tracks = [];
 
   $scope.$on('search', (scope, query) => {
     vm.currentQuery = query;
@@ -29,7 +30,7 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
       } else if (vm.currentType === 'album') {
         vm.albums = res.data.albums.items;
       } else {
-        debugger;
+        vm.tracks = res.data.tracks.items;
       }
     }, 
     err => {

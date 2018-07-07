@@ -19,5 +19,12 @@
         </album-card>
     </div>
     </div>
+
+    <div class="list" ng-if="vm.currentType === 'track'"> 
+    <div class="item" ng-repeat="track in vm.tracks">
+        <track-card track="track">
+        </track-card>
+    </div>
+    </div>
 </div>
 
