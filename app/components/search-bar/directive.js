@@ -8,7 +8,9 @@ module.exports = function() {
     restrict: 'E',
     templateUrl: template,
     link: link,
-    scope: {}, 
+    scope: {
+      options: '<'
+    }, 
     controller: controller,
     controllerAs: 'vm'
   };

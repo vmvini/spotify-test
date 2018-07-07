@@ -10,7 +10,8 @@ module.exports = function($q) {
       return response || $q.when(response);
     },
     responseError: function(rejection) {
-      debugger;
+      alert('Expired spotify session, try login again');
+      window.location.href = 'http://localhost:3000'
     }
   };
 };

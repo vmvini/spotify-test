@@ -1,4 +1,4 @@
-module.exports = function($scope, spotify, $stateParams, authService, $rootScope) {
+module.exports = function($scope, spotify, $stateParams, authService, $rootScope, favoriteService, $state) {
   'ngInject';
   const vm = this;
   saveSpotifyToken();
@@ -6,9 +6,17 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
   vm.options = ['artist', 'track', 'album'];
   vm.currentType = vm.options[0];
   $rootScope.selectedType = vm.currentType;
-  vm.artists = [];
-  vm.albums = [];
-  vm.tracks = [];
+  vm.items = [];
+
+  $scope.$on('toggle.favorites', (scope, showFavorites) => {
+    if ( !showFavorites ) {
+      search(vm.currentQuery, vm.currentType);
+      return;
+    }
+
+    const items = favoriteService.getFavorites(vm.currentType);
+    vm.items = items;
+  });
 
   $scope.$on('search', (scope, query) => {
     vm.currentQuery = query;
@@ -25,17 +33,22 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
     spotify
     .search(query, type)
     .then( res => {
-      if ( vm.currentType === 'artist' ) {
-        vm.artists = res.data.artists.items;
-      } else if (vm.currentType === 'album') {
-        vm.albums = res.data.albums.items;
-      } else {
-        vm.tracks = res.data.tracks.items;
-      }
+      setResults(res.data);
     }, 
     err => {
-      debugger;
+      alert('Expired spotify session, try login again');
+      $state.go('login');
     });
+  }
+
+  function setResults(data) {
+    if ( vm.currentType === 'artist' ) {
+      vm.items = data.artists.items;
+    } else if (vm.currentType === 'album') {
+      vm.items = data.albums.items;
+    } else {
+      vm.items = data.tracks.items;
+    }
   }
 
   function saveSpotifyToken() {

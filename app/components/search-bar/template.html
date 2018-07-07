@@ -1,30 +1,18 @@
-<div class="seach-bar-directive">
-    <md-toolbar>
-        <div id="search-bar" ng-show="vm.showPreSearchBar()" class="md-toolbar-tools">
+<div class="seach-bar-directive" layout="row">
+  <input 
+    placeholder="select a type, type your query and press enter"
+    id="search-input" 
+    type="text" 
+    ng-model="vm.search" 
+    ng-enter="vm.submit()" />
 
-            <h2>Search Spotify Songs</h2>
-            <span flex></span>
+    <select-options options="vm.options"></select-options>
 
-            <md-button ng-click="vm.initiateSearch()">
-                <span>Search</span>
-            </md-button>
+    <i 
+        ng-class="{'marked': vm.showFavorites, 'not_marked': !vm.showFavorites }"
+        ng-click="vm.toggleFavorite()" 
+        class="fa fa-2x fa-heart" 
+        aria-hidden="true">
+    </i>
 
-        </div>
-
-        <div ng-show="vm.showSearchBar()" class="md-toolbar-tools search-bar">
-
-            <md-button  ng-click="vm.submit()">
-                Search
-            </md-button>
-
-            <md-input-container flex>
-                <input id="search-input" type="text" ng-model="vm.search" />
-            </md-input-container>
-
-            <md-button ng-click="vm.endSearch()">
-                close
-            </md-button>
-        </div>
-
-    </md-toolbar>
 </div>

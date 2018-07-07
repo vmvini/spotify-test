@@ -1,6 +1,29 @@
 .seach-bar-directive{
-  .search-bar { background-color: #222; }
-  .search-bar * { color: white !important; }
-  .search-bar input { border-bottom-color: white; }
-  .md-errors-spacer { display:none; }
+  text-align: center;
+  input {
+    width: -webkit-fill-available;
+    height: 60px;
+    padding: 10px;
+  }
+
+
+  @media screen and (max-width: 500px) {
+      font-size: 1.4em;
+  }
+
+  i {
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+
+  .marked {
+    color: #D44950;
+    transition: color 1s ease;
+  }
+
+  .not_marked {
+      color: #BAB3C4;
+      transition: color 1s ease;
+  }
 }

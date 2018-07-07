@@ -6,8 +6,14 @@ module.exports = function() {
   return {
     mark: mark, 
     isMarked: isMarked, 
-    unMark: unMark
+    unMark: unMark, 
+    getFavorites: getFavorites
   };
+
+  function getFavorites(type) {
+    const items = getItems();
+    return items.filter( i => i.data.dataType === type ).map( i => i.data );
+  }
 
   function getItems() {
     const items = localStorage.getItem(itemsKey);
