@@ -10,8 +10,8 @@ module.exports = function() {
     link: link,
     scope: {
       track: '<',
-      parentImage: '@', 
-      parentName: '@'
+      image: '@', 
+      albumname: '@'
     }, 
     controller: controller,
     controllerAs: 'vm'

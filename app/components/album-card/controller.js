@@ -33,6 +33,8 @@ module.exports = function($scope, spotify, $mdDialog) {
         .getAllTracks(albumId)
         .then( res => {
           vm.items = res.data.items;
+          vm.parentImage = image;
+          vm.parentName = name;
         }, 
         err => {
           alert('error while fetching data');
@@ -50,7 +52,7 @@ module.exports = function($scope, spotify, $mdDialog) {
     });
   }
 
-  function modalTemplate(parentImage, parentName) {
+  function modalTemplate() {
     return `
       <h1>Tracks</h1>
       <div class="list"> 
@@ -58,7 +60,7 @@ module.exports = function($scope, spotify, $mdDialog) {
           No results
       </div>
       <div class="item" ng-repeat="track in vm.items">
-          <track-card track="track" parentImage="${parentImage}" parentName="${parentName}">
+          <track-card track="track" image="{{vm.parentImage}}" albumname="{{vm.parentName}}">
           </track-card>
       </div>
       </div>

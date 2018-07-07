@@ -23,14 +23,14 @@ module.exports = function($scope) {
     if ( track.album ) {
       return track.album.name;
     }
-    return $scope.parentName ? $scope.parentName : 'not found';
+    return $scope.albumname ? $scope.albumname : 'not found';
   }
 
   function getImage(track) {
     if ( track.album ) {
       return track.album.images.length > 0 ? track.album.images[0].url : NO_IMG_URL;
     } 
-    return $scope.parentImage ? $scope.parentImage : NO_IMG_URL;
+    return $scope.image ? $scope.image : NO_IMG_URL;
   }
 
   function toMinutes(millis) {

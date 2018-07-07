@@ -1,18 +1,24 @@
-module.exports = function($scope, $rootScope) {
+module.exports = function($scope) {
   'ngInject';
   const vm = this;
-  $rootScope.search = '';
   vm.options = $scope.options;
   vm.showFavorites = false;
+  vm.search = '';
 
   vm.submit = function() {
-    const search = $rootScope.search;
-    $scope.$emit('search', search);
+    $scope.$emit('search', vm.search);
   };
   
   vm.toggleFavorite = function() {
     vm.showFavorites = !vm.showFavorites;
     $scope.$emit('toggle.favorites', vm.showFavorites);
   };
+
+  $scope.$on('selectedType', (scope, type) => {
+    $scope.$emit('updateTerms', {
+      type: type, 
+      search: vm.search
+    });
+  });
 
 };
