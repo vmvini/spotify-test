@@ -1,11 +1,10 @@
-module.exports = function($scope, spotify, $stateParams, authService, $rootScope, favoriteService, $state) {
+module.exports = function($scope, spotify, $stateParams, authService, favoriteService, $state, $timeout) {
   'ngInject';
   const vm = this;
   saveSpotifyToken();
   vm.search = 'a';
   vm.options = ['artist', 'track', 'album'];
   vm.currentType = vm.options[0];
-  $rootScope.selectedType = vm.currentType;
   vm.items = [];
 
   $scope.$on('toggle.favorites', (scope, showFavorites) => {
@@ -13,15 +12,16 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
       search(vm.search, vm.currentType);
       return;
     }
-
-    const items = favoriteService.getFavorites(vm.currentType);
-    vm.items = items;
+    vm.items = [];
+    $timeout(() => {
+      const items = favoriteService.getFavorites(vm.currentType);
+      vm.items = items;
+    }, 100);
   });
 
   $scope.$on('updateTerms', (scope, terms) => {
     vm.search = terms.search;
     vm.currentType = terms.type;
-    $rootScope.selectedType = vm.currentType;
     search(vm.search, vm.currentType);
   }); 
 
@@ -34,7 +34,6 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
   $scope.$on('selectedType', (scope, type) => {
     vm.items = [];
     vm.currentType = type;
-    $rootScope.selectedType = type;
     search(vm.search, type);
   });
 

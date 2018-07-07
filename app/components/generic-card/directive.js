@@ -12,7 +12,8 @@ module.exports = function() {
       url: '@',
       id: '@',
       title: '@', 
-      data: '<'
+      data: '<', 
+      type: '@'
     }, 
     controller: controller,
     controllerAs: 'vm', 

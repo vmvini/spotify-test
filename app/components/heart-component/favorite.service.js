@@ -12,7 +12,7 @@ module.exports = function() {
 
   function getFavorites(type) {
     const items = getItems();
-    return items.filter( i => i.data.dataType === type ).map( i => i.data );
+    return items.filter( i => i.dataType === type ).map( i => i.data );
   }
 
   function getItems() {
@@ -27,11 +27,12 @@ module.exports = function() {
     localStorage.setItem(itemsKey, JSON.stringify(items) );
   }
   
-  function mark(id, data) {
+  function mark(id, data, type) {
     const items = getItems();
     items.push({
       id: id, 
-      data: data
+      data: data, 
+      dataType: type
     });
     setItems(items);
   }

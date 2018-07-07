@@ -10,7 +10,8 @@ module.exports = function() {
     link: link,
     scope: {
       id: '<', 
-      data: '<'
+      data: '<',
+      type: '@'
     }, 
     controller: controller,
     controllerAs: 'vm'

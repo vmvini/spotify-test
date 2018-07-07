@@ -4,6 +4,7 @@ module.exports = function($scope, favoriteService, $rootScope) {
   const vm = this;
   const id = $scope.id;
   const data = $scope.data;
+  const type = $scope.type;
   vm.isMarked = favoriteService.isMarked(id);
 
   vm.favorite = ($event) => {
@@ -11,8 +12,7 @@ module.exports = function($scope, favoriteService, $rootScope) {
       favoriteService.unMark(id);
       vm.isMarked = false;
     } else {
-      data.dataType = $rootScope.selectedType;
-      favoriteService.mark(id, data);
+      favoriteService.mark(id, data, type);
       vm.isMarked = true;
     }
     $event.stopPropagation();
