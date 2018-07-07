@@ -19,11 +19,13 @@ module.exports = function($scope, spotify, $stateParams, authService, $rootScope
   });
 
   $scope.$on('search', (scope, query) => {
+    vm.items = [];
     vm.currentQuery = query;
     search(query, vm.currentType);
   });
 
   $scope.$on('selectedType', (scope, type) => {
+    vm.items = [];
     vm.currentType = type;
     $rootScope.selectedType = type;
     search(vm.currentQuery, type);
